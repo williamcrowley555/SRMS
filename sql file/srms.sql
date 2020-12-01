@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 01, 2020 lúc 02:01 PM
+-- Thời gian đã tạo: Th12 01, 2020 lúc 03:34 PM
 -- Phiên bản máy phục vụ: 10.4.14-MariaDB
 -- Phiên bản PHP: 7.2.34
 
@@ -26,22 +26,23 @@ USE `srms`;
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `admin`
+-- Cấu trúc bảng cho bảng `account`
 --
 
-CREATE TABLE `admin` (
+CREATE TABLE `account` (
   `id` int(11) NOT NULL,
   `UserName` varchar(100) DEFAULT NULL,
   `Password` varchar(100) DEFAULT NULL,
-  `updationDate` timestamp NULL DEFAULT NULL
+  `updationDate` timestamp NULL DEFAULT NULL,
+  `TeacherId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Đang đổ dữ liệu cho bảng `admin`
+-- Đang đổ dữ liệu cho bảng `account`
 --
 
-INSERT INTO `admin` (`id`, `UserName`, `Password`, `updationDate`) VALUES
-(1, 'admin', 'f925916e2754e5e03f75dd58a5733251', '2017-05-13 11:18:49');
+INSERT INTO `account` (`id`, `UserName`, `Password`, `updationDate`, `TeacherId`) VALUES
+(1, 'admin', 'f925916e2754e5e03f75dd58a5733251', '2017-05-13 11:18:49', 3);
 
 -- --------------------------------------------------------
 
@@ -249,10 +250,11 @@ INSERT INTO `tblteachers` (`TeacherId`, `TeacherName`, `TeacherPhoneNumber`, `Te
 --
 
 --
--- Chỉ mục cho bảng `admin`
+-- Chỉ mục cho bảng `account`
 --
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `account`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk1_admin` (`TeacherId`);
 
 --
 -- Chỉ mục cho bảng `tblclasses`
@@ -309,9 +311,9 @@ ALTER TABLE `tblteachers`
 --
 
 --
--- AUTO_INCREMENT cho bảng `admin`
+-- AUTO_INCREMENT cho bảng `account`
 --
-ALTER TABLE `admin`
+ALTER TABLE `account`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
@@ -359,6 +361,12 @@ ALTER TABLE `tblteachers`
 --
 -- Các ràng buộc cho các bảng đã đổ
 --
+
+--
+-- Các ràng buộc cho bảng `account`
+--
+ALTER TABLE `account`
+  ADD CONSTRAINT `fk1_admin` FOREIGN KEY (`TeacherId`) REFERENCES `tblteachers` (`TeacherId`);
 
 --
 -- Các ràng buộc cho bảng `tblclasses`
