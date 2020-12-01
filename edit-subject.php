@@ -12,10 +12,12 @@ if(isset($_POST['Update']))
 $sid=intval($_GET['subjectid']);
 $subjectname=$_POST['subjectname'];
 $subjectcode=$_POST['subjectcode']; 
-$sql="update  tblsubjects set SubjectName=:subjectname,SubjectCode=:subjectcode where id=:sid";
+$today = date('Y-m-d H:i:s');
+$sql="update  tblsubjects set SubjectName=:subjectname,SubjectCode=:subjectcode,UpdationDate=:today where id=:sid";
 $query = $dbh->prepare($sql);
 $query->bindParam(':subjectname',$subjectname,PDO::PARAM_STR);
 $query->bindParam(':subjectcode',$subjectcode,PDO::PARAM_STR);
+$query->bindParam(':today',$today,PDO::PARAM_STR);
 $query->bindParam(':sid',$sid,PDO::PARAM_STR);
 $query->execute();
 $msg="Subject Info updated successfully";

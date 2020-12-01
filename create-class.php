@@ -10,13 +10,17 @@ if(strlen($_SESSION['alogin'])=="")
 if(isset($_POST['submit']))
 {
 $classname=$_POST['classname'];
-$classnamenumeric=$_POST['classnamenumeric']; 
+$classnamenumeric=$_POST['classnamenumeric'];
 $section=$_POST['section'];
-$sql="INSERT INTO  tblclasses(ClassName,ClassNameNumeric,Section) VALUES(:classname,:classnamenumeric,:section)";
+$teacher=$_POST['teacher'];
+$faculty=$_POST['faculty'];
+$sql="INSERT INTO  tblclasses(ClassName,ClassNameNumeric,Section,TeacherId,FacultyId) VALUES(:classname,:classnamenumeric,:section,:teacher,:faculty)";
 $query = $dbh->prepare($sql);
 $query->bindParam(':classname',$classname,PDO::PARAM_STR);
 $query->bindParam(':classnamenumeric',$classnamenumeric,PDO::PARAM_STR);
 $query->bindParam(':section',$section,PDO::PARAM_STR);
+$query->bindParam(':teacher',$teacher,PDO::PARAM_STR);
+$query->bindParam(':faculty',$faculty,PDO::PARAM_STR);
 $query->execute();
 $lastInsertId = $dbh->lastInsertId();
 if($lastInsertId)
@@ -146,7 +150,43 @@ else if($error){?>
                                                         <label for="success" class="control-label">Section</label>
                                                         <div class="">
                                                             <input type="text" name="section" class="form-control" required="required" id="success">
-                                                            <span class="help-block">Eg- A,B,C etc</span>
+                                                            <span class="help-block">Eg- DCT,DKE,DAN etc</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group has-success">
+                                                        <label for="success" class="control-label">Homeroom Teacher</label>
+                                                        <div class="">
+                                                            <select name="teacher" class="form-control" id="default" required="required">
+                                                                <option value="">Select Teacher</option>
+                                                                <?php $sql = "SELECT * from tblteachers";
+                                                                $query = $dbh->prepare($sql);
+                                                                $query->execute();
+                                                                $results=$query->fetchAll(PDO::FETCH_OBJ);
+                                                                if($query->rowCount() > 0)
+                                                                {
+                                                                foreach($results as $result)
+                                                                {   ?>
+                                                                <option value="<?php echo htmlentities($result->TeacherId); ?>"><?php echo htmlentities($result->TeacherName); ?></option>
+                                                                <?php }} ?>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group has-success">
+                                                        <label for="success" class="control-label">Faculty</label>
+                                                        <div class="">
+                                                            <select name="faculty" class="form-control" id="default" required="required">
+                                                                <option value="">Select Faculty</option>
+                                                                <?php $sql = "SELECT * from tblfaculty";
+                                                                $query = $dbh->prepare($sql);
+                                                                $query->execute();
+                                                                $results=$query->fetchAll(PDO::FETCH_OBJ);
+                                                                if($query->rowCount() > 0)
+                                                                {
+                                                                foreach($results as $result)
+                                                                {   ?>
+                                                                <option value="<?php echo htmlentities($result->FacultyId); ?>"><?php echo htmlentities($result->FacultyName); ?></option>
+                                                                <?php }} ?>
+                                                            </select>
                                                         </div>
                                                     </div>
   <div class="form-group has-success">
