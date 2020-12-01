@@ -141,7 +141,7 @@ foreach($results as $result)
  <td><?php echo htmlentities($cnt);?></td>
                                                             <td><?php echo htmlentities($result->StudentName);?></td>
                                                             <td><?php echo htmlentities($result->RollId);?></td>
-                                                            <td><?php echo htmlentities($result->ClassName);?>&nbsp<?php echo htmlentities($result->ClassNameNumeric);?>&nbsp<?php echo htmlentities($result->Section);?></td>
+                                                            <td><?php echo htmlentities($result->ClassName);?>&nbsp<?php echo htmlentities($result->Section);?><?php echo htmlentities($result->ClassNameNumeric);?></td>
                                                             <td><?php echo htmlentities($result->RegDate);?></td>
                                                              <td><?php if($result->Status==1){
 echo htmlentities('Active');

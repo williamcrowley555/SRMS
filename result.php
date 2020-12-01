@@ -30,7 +30,7 @@ include('includes/config.php');
                         <div class="container-fluid">
                             <div class="row page-title-div">
                                 <div class="col-md-12">
-                                    <h2 class="title" align="center">Result Management System</h2>
+                                    <h2 class="title" align="center">Student Result Management System</h2>
                                 </div>
                             </div>
                             <!-- /.row -->
@@ -127,7 +127,7 @@ $cnt++;}
 <td style="text-align: center"><b><?php echo htmlentities($totlcount); ?></b> out of <b><?php echo htmlentities($outof=($cnt-1)*100); ?></b></td>
                                                         </tr>
 <tr>
-<th scope="row" colspan="2" style="text-align: center">Percntage</th>           
+<th scope="row" colspan="2" style="text-align: center">Percentage</th>           
 <td style="text-align: center"><b><?php echo  htmlentities($totlcount*(100)/$outof); ?> %</b></td>
 </tr>
 

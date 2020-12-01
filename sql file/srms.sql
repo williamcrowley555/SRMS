@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 01, 2020 lúc 10:59 AM
+-- Thời gian đã tạo: Th12 01, 2020 lúc 02:01 PM
 -- Phiên bản máy phục vụ: 10.4.14-MariaDB
 -- Phiên bản PHP: 7.2.34
 
@@ -107,6 +107,23 @@ CREATE TABLE `tblresult` (
   `UpdationDate` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Đang đổ dữ liệu cho bảng `tblresult`
+--
+
+INSERT INTO `tblresult` (`id`, `StudentId`, `ClassId`, `SubjectId`, `marks`, `PostingDate`, `UpdationDate`) VALUES
+(36, 1, 9, 7, 80, '2020-12-01 12:57:57', NULL),
+(37, 1, 9, 9, 70, '2020-12-01 12:57:57', NULL),
+(38, 1, 9, 2, 65, '2020-12-01 12:57:57', NULL),
+(39, 1, 9, 4, 82, '2020-12-01 12:57:57', NULL),
+(40, 1, 9, 10, 80, '2020-12-01 12:57:57', NULL),
+(41, 1, 9, 5, 76, '2020-12-01 12:57:57', NULL),
+(42, 1, 9, 5, 76, '2020-12-01 12:57:57', NULL),
+(43, 1, 9, 8, 75, '2020-12-01 12:57:57', NULL),
+(44, 1, 9, 11, 90, '2020-12-01 12:57:57', NULL),
+(45, 1, 9, 1, 65, '2020-12-01 12:57:57', NULL),
+(46, 1, 9, 6, 88, '2020-12-01 12:57:57', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -198,10 +215,7 @@ INSERT INTO `tblsubjects` (`id`, `SubjectName`, `SubjectCode`, `Creationdate`, `
 (8, 'Introduction to Programming', 'ITP01', '2020-11-30 01:43:29', '2020-11-30 01:44:06'),
 (9, 'Data Structures and Algorithms', 'DSA01', '2020-11-30 13:38:42', NULL),
 (10, 'Fundamental Database', 'FD01', '2020-11-30 13:39:21', NULL),
-(11, 'Java Programming', 'JP01', '2020-11-30 13:40:00', NULL),
-(12, 'Economics', 'ECNM01', '2020-11-30 13:43:55', NULL),
-(13, 'econometrics', 'ECNMT01', '2020-11-30 13:43:55', NULL),
-(14, 'Accounting Theory', 'AT01', '2020-11-30 13:43:55', NULL);
+(11, 'Java Programming', 'JP01', '2020-11-30 13:40:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -316,7 +330,7 @@ ALTER TABLE `tblfaculty`
 -- AUTO_INCREMENT cho bảng `tblresult`
 --
 ALTER TABLE `tblresult`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT cho bảng `tblstudents`
@@ -328,7 +342,7 @@ ALTER TABLE `tblstudents`
 -- AUTO_INCREMENT cho bảng `tblsubjectcombination`
 --
 ALTER TABLE `tblsubjectcombination`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT cho bảng `tblsubjects`
