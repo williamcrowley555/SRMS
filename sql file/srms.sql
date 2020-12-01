@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 30, 2020 lúc 04:21 PM
+-- Thời gian đã tạo: Th12 01, 2020 lúc 10:59 AM
 -- Phiên bản máy phục vụ: 10.4.14-MariaDB
 -- Phiên bản PHP: 7.2.34
 
@@ -69,10 +69,7 @@ INSERT INTO `tblclasses` (`id`, `ClassName`, `ClassNameNumeric`, `Section`, `Tea
 (10, 'Second', 2, 'DCT', 2, 1, '2020-11-30 13:59:40', NULL),
 (11, 'Third', 3, 'DCT', 3, 1, '2020-11-30 14:00:18', NULL),
 (12, 'Fourth', 4, 'DCT', 4, 1, '2020-11-30 14:01:01', NULL),
-(13, 'Fifth', 5, 'DCT', 5, 1, '2020-11-30 14:01:01', NULL),
-(14, 'Sixth', 6, 'DKE', 6, 2, '2020-11-30 14:03:26', NULL),
-(15, 'Seventh', 7, 'DKE', 7, 2, '2020-11-30 14:03:26', NULL),
-(16, 'Eighth', 8, 'DKE', 8, 2, '2020-11-30 14:03:26', NULL);
+(13, 'Fifth', 5, 'DCT', 5, 1, '2020-11-30 14:01:01', NULL);
 
 -- --------------------------------------------------------
 
@@ -92,8 +89,7 @@ CREATE TABLE `tblfaculty` (
 --
 
 INSERT INTO `tblfaculty` (`FacultyId`, `FacultyCode`, `FacultyName`, `TeacherId`) VALUES
-(1, 'IT', 'Information Technology', 3),
-(2, 'ACT', 'Accounting', 6);
+(1, 'IT', 'Information Technology', 3);
 
 -- --------------------------------------------------------
 
@@ -110,21 +106,6 @@ CREATE TABLE `tblresult` (
   `PostingDate` timestamp NULL DEFAULT current_timestamp(),
   `UpdationDate` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Đang đổ dữ liệu cho bảng `tblresult`
---
-
-INSERT INTO `tblresult` (`id`, `StudentId`, `ClassId`, `SubjectId`, `marks`, `PostingDate`, `UpdationDate`) VALUES
-(27, 6, 14, 14, 60, '2020-11-30 15:20:44', NULL),
-(28, 6, 14, 7, 60, '2020-11-30 15:20:44', NULL),
-(29, 6, 14, 13, 60, '2020-11-30 15:20:44', NULL),
-(30, 6, 14, 12, 60, '2020-11-30 15:20:44', NULL),
-(31, 6, 14, 2, 60, '2020-11-30 15:20:44', NULL),
-(32, 6, 14, 4, 60, '2020-11-30 15:20:44', NULL),
-(33, 6, 14, 5, 60, '2020-11-30 15:20:44', NULL),
-(34, 6, 14, 1, 60, '2020-11-30 15:20:44', NULL),
-(35, 6, 14, 6, 60, '2020-11-30 15:20:44', NULL);
 
 -- --------------------------------------------------------
 
@@ -155,7 +136,7 @@ INSERT INTO `tblstudents` (`StudentId`, `StudentName`, `RollId`, `StudentEmail`,
 (3, 'Student C', '2626', 'studentc@gmail.com', 'Male', '2001-08-06', 10, '2020-11-30 04:33:02', '2020-11-30 04:33:15', 1),
 (4, 'Student D', '990', 'studentd@gmail.com', 'Male', '2001-02-03', 10, '2020-11-30 04:33:40', '2020-11-30 04:34:24', 1),
 (5, 'Student E', '122', 'studente01@gmail.com', 'Male', '2002-02-03', 10, '2020-11-30 04:34:43', '2020-11-30 04:34:58', 1),
-(6, 'Student F', '12312', 'studentf14@gmail.com', 'Female', '2000-10-22', 14, '2020-11-30 14:16:48', NULL, 1);
+(7, 'mis', '1456', 'helloworld123@gmail.com', 'Male', '2002-01-18', 13, '2020-12-01 09:49:52', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -177,22 +158,13 @@ CREATE TABLE `tblsubjectcombination` (
 --
 
 INSERT INTO `tblsubjectcombination` (`id`, `FacultyId`, `SubjectId`, `status`, `CreationDate`, `Updationdate`) VALUES
-(28, 2, 1, 1, '2020-11-30 14:06:08', NULL),
 (29, 1, 1, 1, '2020-11-30 14:06:08', NULL),
-(30, 2, 2, 1, '2020-11-30 14:07:13', NULL),
 (31, 1, 2, 1, '2020-11-30 14:07:13', NULL),
-(32, 2, 4, 1, '2020-11-30 14:07:13', NULL),
 (33, 1, 4, 1, '2020-11-30 14:07:13', NULL),
-(34, 2, 5, 1, '2020-11-30 14:08:18', NULL),
 (35, 1, 5, 1, '2020-11-30 14:08:18', NULL),
 (36, 1, 5, 1, '2020-11-30 14:08:18', NULL),
-(37, 2, 6, 1, '2020-11-30 14:08:18', NULL),
 (38, 1, 6, 1, '2020-11-30 14:08:18', NULL),
-(39, 2, 7, 1, '2020-11-30 14:08:18', NULL),
 (40, 1, 7, 1, '2020-11-30 14:08:18', NULL),
-(43, 2, 12, 1, '2020-11-30 15:09:34', NULL),
-(44, 2, 13, 1, '2020-11-30 15:09:34', NULL),
-(45, 2, 14, 1, '2020-11-30 15:09:34', NULL),
 (46, 1, 8, 1, '2020-11-30 15:10:16', NULL),
 (47, 1, 9, 1, '2020-11-30 15:10:16', NULL),
 (48, 1, 10, 1, '2020-11-30 15:10:16', NULL),
@@ -218,8 +190,8 @@ CREATE TABLE `tblsubjects` (
 
 INSERT INTO `tblsubjects` (`id`, `SubjectName`, `SubjectCode`, `Creationdate`, `UpdationDate`) VALUES
 (1, 'Philosophy of Marxism and Leninism', 'POMAL01', '2020-11-28 09:23:57', '2020-11-28 09:46:54'),
-(2, 'English01', 'ENG01', '2020-11-28 09:24:25', '2020-11-28 10:12:22'),
-(4, 'English02', 'ENG02', '2020-11-28 09:26:28', '0000-00-00 00:00:00'),
+(2, 'English1', 'ENG01', '2020-11-28 09:24:25', '2020-11-28 10:12:22'),
+(4, 'English2', 'ENG02', '2020-11-28 09:26:28', '0000-00-00 00:00:00'),
 (5, 'Introduction to laws', 'ITL01', '2020-11-28 09:36:23', '0000-00-00 00:00:00'),
 (6, 'Physical Education', 'PE01', '2020-11-28 18:43:29', '2020-11-28 18:44:10'),
 (7, 'Analytics', 'ANLT01', '2020-11-28 18:52:41', '2020-11-28 18:52:59'),
@@ -332,7 +304,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT cho bảng `tblclasses`
 --
 ALTER TABLE `tblclasses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT cho bảng `tblfaculty`
@@ -350,7 +322,7 @@ ALTER TABLE `tblresult`
 -- AUTO_INCREMENT cho bảng `tblstudents`
 --
 ALTER TABLE `tblstudents`
-  MODIFY `StudentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `StudentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `tblsubjectcombination`
@@ -362,7 +334,7 @@ ALTER TABLE `tblsubjectcombination`
 -- AUTO_INCREMENT cho bảng `tblsubjects`
 --
 ALTER TABLE `tblsubjects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT cho bảng `tblteachers`
