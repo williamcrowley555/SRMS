@@ -58,7 +58,7 @@ $rollid=$_POST['rollid'];
 $classid=$_POST['class'];
 $_SESSION['rollid']=$rollid;
 $_SESSION['classid']=$classid;
-$qery = "SELECT   tblstudents.StudentName,tblstudents.RollId,tblstudents.RegDate,tblstudents.StudentId,tblstudents.Status,tblclasses.ClassName,tblclasses.Section from tblstudents join tblclasses on tblclasses.id=tblstudents.ClassId where tblstudents.RollId=:rollid and tblstudents.ClassId=:classid ";
+$qery = "SELECT   tblstudents.StudentName,tblstudents.RollId,tblstudents.RegDate,tblstudents.StudentId,tblstudents.Status,tblclasses.ClassName,tblclasses.ClassNameNumeric,tblclasses.Section from tblstudents join tblclasses on tblclasses.id=tblstudents.ClassId where tblstudents.RollId=:rollid and tblstudents.ClassId=:classid ";
 $stmt = $dbh->prepare($qery);
 $stmt->bindParam(':rollid',$rollid,PDO::PARAM_STR);
 $stmt->bindParam(':classid',$classid,PDO::PARAM_STR);
@@ -71,7 +71,7 @@ foreach($resultss as $row)
 {   ?>
 <p><b>Student Name :</b> <?php echo htmlentities($row->StudentName);?></p>
 <p><b>Student Roll Id :</b> <?php echo htmlentities($row->RollId);?>
-<p><b>Student Class:</b> <?php echo htmlentities($row->ClassName);?>(<?php echo htmlentities($row->Section);?>)
+<p><b>Student Class:</b> <?php echo htmlentities($row->ClassName);?>&nbsp<?php echo htmlentities($row->Section);?><?php echo htmlentities($row->ClassNameNumeric);?>
 <?php }
 
     ?>
