@@ -109,7 +109,7 @@ else if($error){?>
 
 <?php 
 
-$ret = "SELECT tblstudents.StudentName,tblclasses.ClassName,tblclasses.Section from tblresult join tblstudents on tblresult.StudentId=tblresult.StudentId join tblsubjects on tblsubjects.id=tblresult.SubjectId join tblclasses on tblclasses.id=tblstudents.ClassId where tblstudents.StudentId=:stid limit 1";
+$ret = "SELECT tblstudents.StudentName,tblclasses.ClassName,tblclasses.ClassNameNumeric,tblclasses.Section from tblresult join tblstudents on tblresult.StudentId=tblresult.StudentId join tblsubjects on tblsubjects.id=tblresult.SubjectId join tblclasses on tblclasses.id=tblstudents.ClassId where tblstudents.StudentId=:stid limit 1";
 $stmt = $dbh->prepare($ret);
 $stmt->bindParam(':stid',$stid,PDO::PARAM_STR);
 $stmt->execute();
@@ -124,7 +124,7 @@ foreach($result as $row)
                                                     <div class="form-group">
                                             <label for="default" class="col-sm-2 control-label">Class</label>
                                                         <div class="col-sm-10">
-<?php echo htmlentities($row->ClassName)?>(<?php echo htmlentities($row->Section)?>)
+<?php echo htmlentities($row->ClassName)?> <?php echo htmlentities($row->Section)?><?php echo htmlentities($row->ClassNameNumeric)?>
                                                         </div>
                                                     </div>
 <div class="form-group">

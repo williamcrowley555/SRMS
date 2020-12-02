@@ -69,7 +69,7 @@ $msg="Student info updated successfully";
                      <div class="container-fluid">
                             <div class="row page-title-div">
                                 <div class="col-md-6">
-                                    <h2 class="title">Student Admission</h2>
+                                    <h2 class="title">Update Student</h2>
                                 
                                 </div>
                                 
@@ -81,7 +81,7 @@ $msg="Student info updated successfully";
                                     <ul class="breadcrumb">
                                         <li><a href="dashboard.php"><i class="fa fa-home"></i> Home</a></li>
                                 
-                                        <li class="active">Student Admission</li>
+                                        <li class="active">Update Student</li>
                                     </ul>
                                 </div>
                              
@@ -111,7 +111,7 @@ else if($error){?>
                                                 <form class="form-horizontal" method="post">
 <?php 
 
-$sql = "SELECT tblstudents.StudentName,tblstudents.RollId,tblstudents.RegDate,tblstudents.StudentId,tblstudents.Status,tblstudents.StudentEmail,tblstudents.Gender,tblstudents.DOB,tblclasses.ClassName,tblclasses.Section from tblstudents join tblclasses on tblclasses.id=tblstudents.ClassId where tblstudents.StudentId=:stid";
+$sql = "SELECT tblstudents.StudentName,tblstudents.RollId,tblstudents.RegDate,tblstudents.StudentId,tblstudents.Status,tblstudents.StudentEmail,tblstudents.Gender,tblstudents.DOB,tblclasses.ClassName,tblclasses.ClassNameNumeric,tblclasses.Section from tblstudents join tblclasses on tblclasses.id=tblstudents.ClassId where tblstudents.StudentId=:stid";
 $query = $dbh->prepare($sql);
 $query->bindParam(':stid',$stid,PDO::PARAM_STR);
 $query->execute();
@@ -131,14 +131,14 @@ foreach($results as $result)
 </div>
 
 <div class="form-group">
-<label for="default" class="col-sm-2 control-label">Rool Id</label>
+<label for="default" class="col-sm-2 control-label">Roll Id</label>
 <div class="col-sm-10">
 <input type="text" name="rollid" class="form-control" id="rollid" value="<?php echo htmlentities($result->RollId)?>" maxlength="5" required="required" autocomplete="off">
 </div>
 </div>
 
 <div class="form-group">
-<label for="default" class="col-sm-2 control-label">Email id)</label>
+<label for="default" class="col-sm-2 control-label">Email</label>
 <div class="col-sm-10">
 <input type="email" name="emailid" class="form-control" id="email" value="<?php echo htmlentities($result->StudentEmail)?>" required="required" autocomplete="off">
 </div>
@@ -177,7 +177,7 @@ if($gndr=="Other")
                                                     <div class="form-group">
                                                         <label for="default" class="col-sm-2 control-label">Class</label>
                                                         <div class="col-sm-10">
-<input type="text" name="classname" class="form-control" id="classname" value="<?php echo htmlentities($result->ClassName)?>(<?php echo htmlentities($result->Section)?>)" readonly>
+<input type="text" name="classname" class="form-control" id="classname" value="<?php echo htmlentities($result->ClassName)?>&nbsp;<?php echo htmlentities($result->Section)?><?php echo htmlentities($result->ClassNameNumeric)?>" readonly>
                                                         </div>
                                                     </div>
 <div class="form-group">
