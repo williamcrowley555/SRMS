@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 01, 2020 lúc 03:34 PM
+-- Thời gian đã tạo: Th12 02, 2020 lúc 03:30 AM
 -- Phiên bản máy phục vụ: 10.4.14-MariaDB
 -- Phiên bản PHP: 7.2.34
 
@@ -53,7 +53,7 @@ INSERT INTO `account` (`id`, `UserName`, `Password`, `updationDate`, `TeacherId`
 CREATE TABLE `tblclasses` (
   `id` int(11) NOT NULL,
   `ClassName` varchar(80) DEFAULT NULL,
-  `ClassNameNumeric` int(4) DEFAULT NULL,
+  `ClassNameNumeric` int(5) DEFAULT NULL,
   `Section` varchar(5) DEFAULT NULL,
   `TeacherId` int(11) NOT NULL,
   `FacultyId` int(11) NOT NULL,
@@ -80,7 +80,6 @@ INSERT INTO `tblclasses` (`id`, `ClassName`, `ClassNameNumeric`, `Section`, `Tea
 
 CREATE TABLE `tblfaculty` (
   `FacultyId` int(11) NOT NULL,
-  `FacultyCode` varchar(100) NOT NULL,
   `FacultyName` varchar(100) NOT NULL,
   `TeacherId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -89,8 +88,8 @@ CREATE TABLE `tblfaculty` (
 -- Đang đổ dữ liệu cho bảng `tblfaculty`
 --
 
-INSERT INTO `tblfaculty` (`FacultyId`, `FacultyCode`, `FacultyName`, `TeacherId`) VALUES
-(1, 'IT', 'Information Technology', 3);
+INSERT INTO `tblfaculty` (`FacultyId`, `FacultyName`, `TeacherId`) VALUES
+(1, 'Information Technology', 3);
 
 -- --------------------------------------------------------
 
