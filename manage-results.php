@@ -128,7 +128,7 @@ else if($error){?>
                                                         </tr>
                                                     </tfoot>
                                                     <tbody>
-<?php $sql = "SELECT  distinct tblstudents.StudentName,tblstudents.RollId,tblstudents.RegDate,tblstudents.StudentId,tblstudents.Status,tblclasses.ClassName,tblclasses.Section from tblresult join tblstudents on tblstudents.StudentId=tblresult.StudentId  join tblclasses on tblclasses.id=tblresult.ClassId";
+<?php $sql = "SELECT  distinct tblstudents.StudentName,tblstudents.RollId,tblstudents.RegDate,tblstudents.StudentId,tblstudents.Status,tblclasses.ClassName,tblclasses.ClassNameNumeric,tblclasses.Section from tblresult join tblstudents on tblstudents.StudentId=tblresult.StudentId  join tblclasses on tblclasses.id=tblstudents.ClassId";
 $query = $dbh->prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -141,7 +141,7 @@ foreach($results as $result)
  <td><?php echo htmlentities($cnt);?></td>
                                                             <td><?php echo htmlentities($result->StudentName);?></td>
                                                             <td><?php echo htmlentities($result->RollId);?></td>
-                                                            <td><?php echo htmlentities($result->ClassName);?>(<?php echo htmlentities($result->Section);?>)</td>
+                                                            <td><?php echo htmlentities($result->ClassName);?> <?php echo htmlentities($result->Section);?><?php echo htmlentities($result->ClassNameNumeric);?></td>
                                                             <td><?php echo htmlentities($result->RegDate);?></td>
                                                              <td><?php if($result->Status==1){
 echo htmlentities('Active');

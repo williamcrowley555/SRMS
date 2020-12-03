@@ -26,10 +26,9 @@ array_push($sid1,$row['id']);
 for($i=0;$i<count($mark);$i++){
     $mar=$mark[$i];
   $sid=$sid1[$i];
-$sql="INSERT INTO  tblresult(StudentId,ClassId,SubjectId,marks) VALUES(:studentid,:class,:sid,:marks)";
+$sql="INSERT INTO  tblresult(StudentId,SubjectId,marks) VALUES(:studentid,:sid,:marks)";
 $query = $dbh->prepare($sql);
 $query->bindParam(':studentid',$studentid,PDO::PARAM_STR);
-$query->bindParam(':class',$class,PDO::PARAM_STR);
 $query->bindParam(':sid',$sid,PDO::PARAM_STR);
 $query->bindParam(':marks',$mar,PDO::PARAM_STR);
 $query->execute();
